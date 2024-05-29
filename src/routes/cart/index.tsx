@@ -7,6 +7,8 @@ export const Route = createFileRoute("/cart/")({
 
 function Cart() {
   const { cart, removeProduct, removeAllProducts } = useCart();
+  void removeAllProducts;
+  void removeProduct;
   return (
     <div>
       {cart.map((product) => (
