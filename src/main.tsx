@@ -6,6 +6,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
 import { AppQueryClientProvider } from "./providers/AppQueryClientProvider";
+import { CartContextProvider } from "./providers/CartProvider";
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -20,7 +21,9 @@ declare module "@tanstack/react-router" {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AppQueryClientProvider>
-      <RouterProvider router={router} />
+      <CartContextProvider>
+        <RouterProvider router={router} />
+      </CartContextProvider>
     </AppQueryClientProvider>
   </React.StrictMode>
 );

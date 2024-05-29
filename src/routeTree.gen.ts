@@ -12,7 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as AboutIndexImport } from './routes/about/index'
+import { Route as CartIndexImport } from './routes/cart/index'
 
 // Create/Update Routes
 
@@ -21,8 +21,8 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AboutIndexRoute = AboutIndexImport.update({
-  path: '/about/',
+const CartIndexRoute = CartIndexImport.update({
+  path: '/cart/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -37,11 +37,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/about/': {
-      id: '/about/'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutIndexImport
+    '/cart/': {
+      id: '/cart/'
+      path: '/cart'
+      fullPath: '/cart'
+      preLoaderRoute: typeof CartIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -49,7 +49,7 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexRoute, AboutIndexRoute })
+export const routeTree = rootRoute.addChildren({ IndexRoute, CartIndexRoute })
 
 /* prettier-ignore-end */
 
@@ -60,14 +60,14 @@ export const routeTree = rootRoute.addChildren({ IndexRoute, AboutIndexRoute })
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about/"
+        "/cart/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/about/": {
-      "filePath": "about/index.tsx"
+    "/cart/": {
+      "filePath": "cart/index.tsx"
     }
   }
 }
