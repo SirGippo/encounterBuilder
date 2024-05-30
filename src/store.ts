@@ -1,3 +1,4 @@
+// Product type expected from the API
 export type Product = {
   id: number;
   title: string;
@@ -11,8 +12,11 @@ export type Product = {
   };
 };
 
+// List of Products from the API
 export type Products = Product[]
 
+
+// Product in the Cart
 export type ProductCart = {
   id: number;
   title: string;
@@ -20,4 +24,5 @@ export type ProductCart = {
   count: number;
 }
 
+// List of Products in the Cart
 export type ProductCarts = ProductCart[];

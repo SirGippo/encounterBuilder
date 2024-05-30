@@ -2,13 +2,18 @@ import { StarIcon } from "@heroicons/react/16/solid";
 import { useCart } from "../providers/CartProvider";
 import { Product } from "../store";
 
+// What the card is expecting as props
 interface CardProps {
   product: Product;
 }
 
 export function Card({ product }: CardProps) {
+  // Destructing product
   const { image, id, price, description, rating, title } = product;
+
+  // Accessing the Cart Context to add products to our cart
   const { addProduct } = useCart();
+
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow h-fit">
       <div className="flex justify-center">
@@ -40,6 +45,8 @@ export function Card({ product }: CardProps) {
         <hr />
         <div className="flex items-center justify-between pt-2">
           <span className="text-3xl font-bold">{price} $</span>
+
+          {/* Button that adds the product to our cart */}
           <button
             onClick={() => addProduct({ id, title, price, count: 1 })}
             className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
