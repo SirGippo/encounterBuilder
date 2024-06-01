@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
-import { type Products } from "../store.ts";
 import { Card } from "../components/Card.tsx";
+import { Products } from "../store.ts";
 
 // What gets rendered at localhost:5173/
 export const Route = createFileRoute("/")({
